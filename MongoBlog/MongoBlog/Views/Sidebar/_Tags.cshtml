@@ -1,0 +1,13 @@
+﻿@model IEnumerable<string>
+
+<section class="panel panel-default">
+    <div class="panel-heading">Tags</div>
+    <ul class="list-group">
+        <li class="list-group-item">
+            @foreach (var item in Model)
+            {
+                <a href="@Url.RouteUrl("Posts.GetByTag", new { tag = item })"><span class="label label-primary">@item</span></a>
+            }
+        </li>
+    </ul>
+</section>

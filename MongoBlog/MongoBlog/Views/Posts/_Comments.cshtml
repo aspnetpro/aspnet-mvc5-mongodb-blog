@@ -1,0 +1,14 @@
+﻿@model IEnumerable<MongoBlog.Models.Entities.Comment>
+
+@foreach (var item in Model)
+{
+    <div class="list-group-item">
+        <div class="list-group-item-heading">
+            <h5 class="user"><i class="icon-user"></i> @item.Author</h5>
+            <div class="text-muted pull-right"><i class="icon-time"></i> @item.PublishedOn.ToString("dd/MM/yyyy hh:mm")</div>
+        </div>
+        <div class="list-group-item-text">
+            @item.Body
+        </div>
+    </div>
+}

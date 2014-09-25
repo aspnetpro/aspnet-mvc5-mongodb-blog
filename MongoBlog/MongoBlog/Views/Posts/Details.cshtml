@@ -1,0 +1,46 @@
+﻿@model MongoBlog.Models.Entities.Post
+
+<section>
+    <div class="post">
+        <h2><a href="#">@Model.Title</a></h2>
+        <p class="text-muted">
+            Posted on <a href="#">@Model.PublishedOn.ToShortDateString()</a>,
+            in <a href="@Url.RouteUrl("Posts.GetByCategory", new { category = Model.Category.Permalink })">@Model.Category.Name</a>
+        </p>
+        <div>
+            @Html.Raw(Model.Body)
+        </div>
+    </div>
+</section>
+
+<section id="comments">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-xs-12 col-md-8"><h2 class="title">@Model.CommentsCount Comments</h2></div>
+                <div class="col-xs-6 col-md-4"><button data-target="#modal-comment" data-toggle="modal" class="btn btn-primary pull-right">Add comment</button></div>
+            </div>
+        </div>
+        <div class="list-group">
+            @Html.Action("LoadComments", new { id = Model.Id })
+        </div>
+        <div class="panel-footer">
+            <button type="button" class="btn btn-primary btn-block">
+                More comments
+                <i class="glyphicon glyphicon-chevron-down"></i>
+            </button>
+        </div>
+    </div>
+</section>
+
+@Html.Partial("_CommentModal")
+
+@section css {
+    <link href="~/content/libs/validate/jquery.validate.css" rel="stylesheet" />
+}
+
+@section scripts {
+    <script src="~/content/libs/validate/jquery.validate.js"></script>
+    <script src="~/content/libs/validate/jquery.validate.extends.js"></script>
+    <script src="~/content/js/blog.post.js"></script>
+}

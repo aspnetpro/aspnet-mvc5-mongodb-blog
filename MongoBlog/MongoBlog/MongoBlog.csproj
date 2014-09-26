@@ -42,6 +42,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ActionMailer.Net">
+      <HintPath>..\packages\ActionMailer.0.7.4\lib\Net40\ActionMailer.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="ActionMailer.Net.Mvc">
+      <HintPath>..\packages\ActionMailer.0.7.4\lib\Net40\ActionMailer.Net.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="MongoDB.Bson">
       <HintPath>..\packages\mongocsharpdriver.1.9.2\lib\net35\MongoDB.Bson.dll</HintPath>
@@ -96,10 +102,81 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\Content\js\admin.posts.js" />
+    <Content Include="Areas\Admin\Content\libs\bootstrap\bootstrap.css" />
+    <Content Include="Areas\Admin\Content\libs\bootstrap\bootstrap.min.css" />
+    <Content Include="Areas\Admin\Content\libs\dataTables\dataTables.bootstrap.css" />
+    <Content Include="Areas\Admin\Content\libs\metisMenu\metisMenu.css" />
+    <Content Include="Areas\Admin\Content\libs\metisMenu\metisMenu.min.css" />
+    <Content Include="Areas\Admin\Content\css\sb-admin-2.css" />
+    <Content Include="Areas\Admin\Content\libs\font-awesome-4.1.0\css\font-awesome.css" />
+    <Content Include="Areas\Admin\Content\libs\font-awesome-4.1.0\css\font-awesome.min.css" />
+    <Content Include="Areas\Admin\Content\libs\font-awesome-4.1.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="Areas\Admin\Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Areas\Admin\Content\libs\bootstrap\bootstrap.js" />
+    <Content Include="Areas\Admin\Content\libs\bootstrap\bootstrap.min.js" />
+    <Content Include="Areas\Admin\Content\libs\jquery-1.11.0.js" />
+    <Content Include="Areas\Admin\Content\libs\dataTables\dataTables.bootstrap.js" />
+    <Content Include="Areas\Admin\Content\libs\dataTables\jquery.dataTables.js" />
+    <Content Include="Areas\Admin\Content\libs\metisMenu\metisMenu.js" />
+    <Content Include="Areas\Admin\Content\libs\metisMenu\metisMenu.min.js" />
+    <Content Include="Areas\Admin\Content\js\sb-admin-2.js" />
+    <Content Include="Areas\Admin\Content\libs\redactor\redactor.css" />
+    <Content Include="Areas\Admin\Content\libs\redactor\redactor.js" />
+    <Content Include="Areas\Admin\Content\libs\validate\jquery.validate.css" />
+    <Content Include="Areas\Admin\Content\libs\validate\jquery.validate.extends.js" />
+    <Content Include="Areas\Admin\Content\libs\validate\jquery.validate.js" />
     <Content Include="Content\css\custom.css" />
     <Content Include="Content\images\profile.jpg" />
     <Content Include="Content\images\threedots.png" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Dashboard\Index.cshtml" />
+    <Content Include="Areas\Admin\Content\libs\font-awesome-4.1.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="Areas\Admin\Content\libs\font-awesome-4.1.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Areas\Admin\Content\libs\font-awesome-4.1.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="Areas\Admin\Content\libs\font-awesome-4.1.0\fonts\FontAwesome.otf" />
+    <Content Include="Areas\Admin\Content\libs\font-awesome-4.1.0\less\bordered-pulled.less" />
+    <Content Include="Areas\Admin\Content\libs\font-awesome-4.1.0\less\core.less" />
+    <Content Include="Areas\Admin\Content\libs\font-awesome-4.1.0\less\fixed-width.less" />
+    <Content Include="Areas\Admin\Content\libs\font-awesome-4.1.0\less\font-awesome.less" />
+    <Content Include="Areas\Admin\Content\libs\font-awesome-4.1.0\less\icons.less" />
+    <Content Include="Areas\Admin\Content\libs\font-awesome-4.1.0\less\larger.less" />
+    <Content Include="Areas\Admin\Content\libs\font-awesome-4.1.0\less\list.less" />
+    <Content Include="Areas\Admin\Content\libs\font-awesome-4.1.0\less\mixins.less" />
+    <Content Include="Areas\Admin\Content\libs\font-awesome-4.1.0\less\path.less" />
+    <Content Include="Areas\Admin\Content\libs\font-awesome-4.1.0\less\rotated-flipped.less" />
+    <Content Include="Areas\Admin\Content\libs\font-awesome-4.1.0\less\spinning.less" />
+    <Content Include="Areas\Admin\Content\libs\font-awesome-4.1.0\less\stacked.less" />
+    <Content Include="Areas\Admin\Content\libs\font-awesome-4.1.0\less\variables.less" />
+    <Content Include="Areas\Admin\Content\libs\font-awesome-4.1.0\scss\font-awesome.scss" />
+    <Content Include="Areas\Admin\Content\libs\font-awesome-4.1.0\scss\_bordered-pulled.scss" />
+    <Content Include="Areas\Admin\Content\libs\font-awesome-4.1.0\scss\_core.scss" />
+    <Content Include="Areas\Admin\Content\libs\font-awesome-4.1.0\scss\_fixed-width.scss" />
+    <Content Include="Areas\Admin\Content\libs\font-awesome-4.1.0\scss\_icons.scss" />
+    <Content Include="Areas\Admin\Content\libs\font-awesome-4.1.0\scss\_larger.scss" />
+    <Content Include="Areas\Admin\Content\libs\font-awesome-4.1.0\scss\_list.scss" />
+    <Content Include="Areas\Admin\Content\libs\font-awesome-4.1.0\scss\_mixins.scss" />
+    <Content Include="Areas\Admin\Content\libs\font-awesome-4.1.0\scss\_path.scss" />
+    <Content Include="Areas\Admin\Content\libs\font-awesome-4.1.0\scss\_rotated-flipped.scss" />
+    <Content Include="Areas\Admin\Content\libs\font-awesome-4.1.0\scss\_spinning.scss" />
+    <Content Include="Areas\Admin\Content\libs\font-awesome-4.1.0\scss\_stacked.scss" />
+    <Content Include="Areas\Admin\Content\libs\font-awesome-4.1.0\scss\_variables.scss" />
+    <Content Include="Areas\Admin\Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Areas\Admin\Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Areas\Admin\Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\Parts\_Navigation.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\Parts\_NavTop.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\Parts\_Sidebar.cshtml" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Posts\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Posts\AddOrEdit.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\NotFound.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\Parts\_Messages.cshtml" />
+    <Content Include="Areas\Admin\Views\Posts\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Auth\LogOn.cshtml" />
     <None Include="Content\libs\jquery\jquery-2.0.3.intellisense.js" />
+    <Content Include="Content\js\blog.contact.js" />
     <Content Include="Content\js\blog.post.js" />
     <Content Include="Content\libs\jquery\jquery-2.0.3.js" />
     <Content Include="Content\libs\jquery\jquery-2.0.3.min.js" />
@@ -131,8 +208,20 @@
     <Content Include="Views\Posts\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Application\BaseController.cs" />
+    <Compile Include="Application\StringExtensions.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AuthController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PostsController.cs" />
+    <Compile Include="Areas\Admin\Models\jQueryDataTableRequestModel.cs" />
+    <Compile Include="Areas\Admin\Models\jQueryDataTableResponseModel.cs" />
+    <Compile Include="Areas\Admin\Models\LogOnModel.cs" />
+    <Compile Include="Areas\Admin\Models\PostModel.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\MailerController.cs" />
     <Compile Include="Controllers\PostsController.cs" />
     <Compile Include="Controllers\SidebarController.cs" />
     <Compile Include="Global.asax.cs">
@@ -141,6 +230,7 @@
     <Compile Include="Models\Entities\Category.cs" />
     <Compile Include="Models\Entities\Comment.cs" />
     <Compile Include="Models\Entities\Post.cs" />
+    <Compile Include="Models\FormModel\ContactFormModel.cs" />
     <Compile Include="Models\ViewModel\CategoryItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -182,6 +272,9 @@
     <Content Include="Views\Sidebar\_Tags.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\NotFound.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Mailer\Contact.txt.cshtml" />
+    <Content Include="Views\Mailer\Contact.html.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -190,7 +283,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Application\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <PropertyGroup>

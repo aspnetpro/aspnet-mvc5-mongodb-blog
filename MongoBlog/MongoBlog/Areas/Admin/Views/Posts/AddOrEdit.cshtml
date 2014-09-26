@@ -1,0 +1,80 @@
+﻿@model MongoBlog.Areas.Admin.Models.PostModel
+@{
+    bool edit = (Model.PostId != null);
+    string title = edit ? "Edit Post" : "Add Post";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            @title
+            <a href="@Url.RouteUrl("Admin.Posts.Index")" class="btn btn-primary pull-right"><i class="fa fa-arrow-circle-left"></i> Back</a>
+        </h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+
+@Html.Partial("Parts/_Messages")
+
+<div class="row-fluid">
+    <form id="post-form" action="@Url.RouteUrl("Admin.Posts.Save")" method="post" role="form">
+        <input type="hidden" name="postId" value="@Model.PostId" />
+        <div class="row">
+            <div class="col-xs-12 col-md-8">
+                <div class="form-group">
+                    <label for="inputTitle">Title</label>
+                    <input type="text" id="inputTitle" name="title" class="form-control input-block-level" maxlength="100" value="@Model.Title">
+                </div>
+                <div class="form-group">
+                    <textarea id="post-body" name="body">@Model.Body</textarea>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-4">
+                <div class="form-group">
+                    <label for="inputDescription">Summary</label>
+                    <textarea id="inputDescription" name="summary" class="form-control input-block-level" maxlength="160" rows="5">@Model.Summary</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="inputCategory">Category</label>
+                    <input type="text" id="inputCategory" name="category" class="form-control input-block-level" value="@Model.Category">
+                </div>
+                <div class="form-group">
+                    <label for="inputTags">Tags</label>
+                    <input type="text" id="inputTags" name="tags" class="form-control input-block-level" value="@Model.Tags">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-lg btn-success btn-block">Save</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section css {
+    <link href="~/Areas/Admin/Content/libs/redactor/redactor.css" rel="stylesheet" />
+    <link href="~/Areas/Admin/Content/libs/validate/jquery.validate.css" rel="stylesheet" />
+}
+
+@section scripts {
+    <script src="~/Areas/Admin/Content/libs/redactor/redactor.js"></script>
+    <script src="~/Areas/Admin/Content/libs/validate/jquery.validate.js"></script>
+    <script src="~/Areas/Admin/Content/libs/validate/jquery.validate.extends.js"></script>
+    <script>
+        jQuery(function ($) {
+
+            $('#post-body').redactor({
+                minHeight: 355,
+                placeholder: 'Add content here...'
+            });
+
+            $('#post-form').validate({
+                rules: {
+                    title: 'required',
+                    summary: 'required',
+                    category: 'required'
+                }
+            });
+
+        });
+    </script>
+}

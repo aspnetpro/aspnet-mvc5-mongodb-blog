@@ -1,0 +1,50 @@
+﻿@if (ViewBag.SUCCESS != null)
+{
+    <div class="row-fluid">
+        <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <h4>Yes!</h4>
+            @ViewBag.SUCCESS
+        </div>
+    </div>
+    @*<div class="modal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h3 class="modal-title" id="myModalLabel">Yes!</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-success">
+                        @ViewBag.SUCCESS
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>*@
+}
+@if (ViewBag.ERROR != null)
+{
+    <div class="row-fluid">
+        <div class="alert alert-error">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <h4>Ouch!</h4>
+            @ViewBag.ERROR
+        </div>
+    </div>
+    @*<div class="modal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h3 class="modal-title" id="myModalLabel">Ouch!</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-danger">
+                        @ViewBag.ERROR
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>*@
+}

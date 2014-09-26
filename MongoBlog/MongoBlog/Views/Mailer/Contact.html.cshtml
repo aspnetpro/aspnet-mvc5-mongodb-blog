@@ -1,0 +1,11 @@
+﻿@model MongoBlog.Models.FormModel.ContactFormModel
+@{
+    Layout = null;
+}
+
+<p>Nome..: <b>@Model.Name</b></p>
+<p>Email.: <b>@Model.Email</b></p>
+<p>Data..: <b>@DateTime.Now.ToLongDateString()</b></p>
+
+<h3>Mensagem:</h3>
+<p>@Model.Message</p>

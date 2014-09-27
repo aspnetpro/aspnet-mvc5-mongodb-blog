@@ -84,12 +84,22 @@ namespace MongoBlog.Areas.Admin.Controllers
                 return View("AddOrEdit", model);
             }
 
-            Post newPost = new Post();
-            newPost.Id = model.PostId ?? model.Title.ToSlug();
-            newPost.Title = model.Title;
-            newPost.Summary = model.Summary;
-            newPost.Body = model.Body;
-            newPost.Category = new Category
+            var repository = new MongoRepository<Post>();
+
+            Post post = null;
+            if (model.PostId != null)
+            {
+                post = repository.GetById(model.PostId);
+            }
+            else
+            {
+                post = new Post();
+                post.Id = model.Title.ToSlug();
+            }
+            post.Title = model.Title;
+            post.Summary = model.Summary;
+            post.Body = model.Body;
+            post.Category = new Category
             {
                 Name = model.Category,
                 Permalink = model.Category.ToSlug()
@@ -97,18 +107,17 @@ namespace MongoBlog.Areas.Admin.Controllers
 
             if (String.IsNullOrWhiteSpace(model.Tags) == false)
             {
-                newPost.Tags = model.Tags
+                post.Tags = model.Tags
                     .Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries)
                     .ToList();
             }
 
             try
             {
-                var repository = new MongoRepository<Post>();
-                repository.Collection.Save(newPost);
+                repository.Collection.Save(post);
 
                 //remove do cache
-                MemoryCache.Default.Remove(newPost.Id);
+                MemoryCache.Default.Remove(post.Id);
             }
             catch (Exception)
             {
@@ -117,7 +126,7 @@ namespace MongoBlog.Areas.Admin.Controllers
 
             Success("Your post has been saved");
 
-            return RedirectToAction("Edit", new { postId = newPost.Id });
+            return RedirectToAction("Edit", new { postId = post.Id });
         }
 
         public ActionResult Delete(string postId)

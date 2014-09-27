@@ -14,7 +14,7 @@ namespace MongoBlog.Controllers
 {
     public class PostsController : Controller
     {
-        const int PAGE_SIZE = 1;
+        const int PAGE_SIZE = 10;
 
         [OutputCache(Duration = 10 /* segundos */)]
         public ActionResult GetAll(PagingOptions options)

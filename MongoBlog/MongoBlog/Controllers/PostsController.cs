@@ -1,68 +1,89 @@
-﻿using MongoBlog.Models.Entities;
+﻿using MongoBlog.Models;
+using MongoBlog.Models.Entities;
 using MongoDB.Driver.Builders;
 using MongoRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Caching;
 using System.Web;
+using System.Web.Caching;
 using System.Web.Mvc;
 
 namespace MongoBlog.Controllers
 {
     public class PostsController : Controller
     {
-        public ActionResult GetAll()
+        const int PAGE_SIZE = 1;
+
+        [OutputCache(Duration = 10 /* segundos */)]
+        public ActionResult GetAll(PagingOptions options)
         {
             //descomentar para exibir a página de erro
             //throw new Exception();
 
-            var posts = new MongoRepository<Post>();
-            var model = posts.ToList();
+            var mongo = new MongoRepository<Post>();
+            var posts = mongo.OrderByDescending(x => x.PublishedOn);
+
+            options.Size = PAGE_SIZE;
+            var model = new PagedList<Post>(posts, options.Page, options.Size);
+
             return View("List", model);
         }
 
-        public ActionResult GetByCategory(string category)
+        [OutputCache(Duration = 60)]
+        public ActionResult GetByCategory(string category, PagingOptions options)
         {
+            options.Size = PAGE_SIZE;
+
             if (String.IsNullOrWhiteSpace(category))
             {
-                return View("List", Enumerable.Empty<Post>());
+                return View("List", new PagedList<Post>(Enumerable.Empty<Post>(), options.Page, options.Size, 0));
             }
 
-            var posts = new MongoRepository<Post>();
+            var mongo = new MongoRepository<Post>();
 
-            var model = posts
+            var posts = mongo
                 .Where(x => x.Category.Permalink == category)
                 .OrderByDescending(x => x.PublishedOn);
 
+            var model = new PagedList<Post>(posts, options.Page, options.Size);
+
             return View("List", model);
         }
 
-        public ActionResult GetByTag(string tag)
+        [OutputCache(Duration = 60)]
+        public ActionResult GetByTag(string tag, PagingOptions options)
         {
             if (String.IsNullOrWhiteSpace(tag))
             {
                 return View("List", Enumerable.Empty<Post>());
             }
 
-            var posts = new MongoRepository<Post>();
+            var mongo = new MongoRepository<Post>();
 
-            var model = posts
+            var posts = mongo
                 .Where(x => x.Tags.Contains(tag))
                 .OrderByDescending(x => x.PublishedOn);
+
+            options.Size = PAGE_SIZE;
+            var model = new PagedList<Post>(posts, options.Page, options.Size);
 
             return View("List", model);
         }
 
-        public ActionResult Search(string term)
+        [OutputCache(Duration = 60)]
+        public ActionResult Search(string term, PagingOptions options)
         {
-            var posts = new MongoRepository<Post>();
+            var mongo = new MongoRepository<Post>();
 
             if (String.IsNullOrWhiteSpace(term))
             {
-                return View("List", posts.ToList());
+                var postsAll = mongo.OrderByDescending(x => x.PublishedOn);
+                return View("List", new PagedList<Post>(postsAll, options.Page, options.Size));
             }
 
-            var model = posts
+            var posts = mongo
                 .Where(x =>
                     x.Title.Contains(term) ||
                     x.Summary.Contains(term) ||
@@ -70,29 +91,51 @@ namespace MongoBlog.Controllers
                 )
                 .OrderByDescending(x => x.PublishedOn);
 
+            options.Size = PAGE_SIZE;
+            var model = new PagedList<Post>(posts, options.Page, options.Size);
+
             return View("List", model);
         }
 
         public ActionResult Details(string id)
         {
-            var posts = new MongoRepository<Post>();
+            //pega o cache
+            var cache = MemoryCache.Default;
 
-            var model = posts.GetById(id);
+            //obtem o post do cache
+            var model = cache.Get(id) as Post;
+            //se nao estiver no cache
             if (model == null)
             {
-                return HttpNotFound();
+                var posts = new MongoRepository<Post>();
+                
+                model = posts.GetById(id);
+                if (model == null)
+                {
+                    return HttpNotFound();
+                }
+
+                //seta a política de expiração
+                var policy =new CacheItemPolicy();
+                policy.AbsoluteExpiration = DateTime.Now.AddHours(1);
+                //busca o post no banco e adiciona no cache
+                cache.Add(id, model, policy);
             }
 
             return View(model);
         }
 
-        public ActionResult LoadComments(string id)
+        [OutputCache(Duration=60)]
+        public ActionResult LoadComments(string id, PagingOptions options)
         {
-            var comments = new MongoRepository<Comment>();
+            var mongo = new MongoRepository<Comment>();
 
-            var model = comments
+            var comments = mongo
                 .Where(x => x.PostId == id)
                 .OrderByDescending(x => x.PublishedOn);
+
+            options.Size = PAGE_SIZE;
+            var model = new PagedList<Comment>(comments, options.Page, options.Size);
 
             return PartialView("_Comments", model);
         }

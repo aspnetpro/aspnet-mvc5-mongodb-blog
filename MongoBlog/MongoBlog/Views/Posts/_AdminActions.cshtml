@@ -1,0 +1,7 @@
+﻿@model MongoBlog.Models.Entities.Post
+
+@if (User.Identity.IsAuthenticated)
+{
+<a href="@Url.RouteUrl("Admin.Posts.Edit", new { postId = Model.Id })" class="btn btn-sm btn-success"><strong>Edit</strong></a>
+<a href="@Url.RouteUrl("Admin.Posts.Delete", new { postId = Model.Id })" class="btn btn-sm btn-danger"><strong>Delete</strong></a>
+}

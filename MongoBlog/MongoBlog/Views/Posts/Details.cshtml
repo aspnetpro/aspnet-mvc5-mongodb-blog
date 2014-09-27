@@ -1,4 +1,7 @@
 ﻿@model MongoBlog.Models.Entities.Post
+@{
+    ViewBag.Title = Model.Title;
+}
 
 <section>
     <div class="post">
@@ -7,9 +10,19 @@
             Posted on <a href="#">@Model.PublishedOn.ToShortDateString()</a>,
             in <a href="@Url.RouteUrl("Posts.GetByCategory", new { category = Model.Category.Permalink })">@Model.Category.Name</a>
         </p>
+        <p>
+            @Html.Partial("_AdminActions", Model)
+        </p>
         <div>
             @Html.Raw(Model.Body)
         </div>
+        <p>
+            <i class="icon-tags"></i>&nbsp;Tags:
+            @foreach (var tag in Model.Tags)
+            {
+                <a href="@Url.RouteUrl("Posts.GetByTag", new { tag = tag })"><span class="label label-primary">@tag</span></a>
+            }
+        </p>
     </div>
 </section>
 
@@ -21,14 +34,8 @@
                 <div class="col-xs-6 col-md-4"><button data-target="#modal-comment" data-toggle="modal" class="btn btn-primary pull-right">Add comment</button></div>
             </div>
         </div>
-        <div class="list-group">
+        <div id="comments-list" class="list-group">
             @Html.Action("LoadComments", new { id = Model.Id })
-        </div>
-        <div class="panel-footer">
-            <button type="button" class="btn btn-primary btn-block">
-                More comments
-                <i class="glyphicon glyphicon-chevron-down"></i>
-            </button>
         </div>
     </div>
 </section>

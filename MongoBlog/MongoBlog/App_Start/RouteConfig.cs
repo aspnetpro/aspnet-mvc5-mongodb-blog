@@ -78,6 +78,13 @@ namespace MongoBlog
                 namespaces: namespaces
             );
 
+            routes.MapRoute(
+                name: "GridFs.GetFile",
+                url: "gridfs/{fileName}",
+                defaults: new { controller = "GridFs", action = "GetFile" },
+                namespaces: namespaces
+            );
+
             //routes.MapRoute(
             //    name: "Default",
             //    url: "{controller}/{action}/{id}",

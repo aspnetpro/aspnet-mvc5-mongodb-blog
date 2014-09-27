@@ -61,6 +61,7 @@
     <Reference Include="NotFoundMvc">
       <HintPath>..\packages\NotFoundMvc.1.2.0\lib\net40\NotFoundMvc.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -102,6 +103,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\Content\js\admin.addOrEditPosts.js" />
     <Content Include="Areas\Admin\Content\js\admin.posts.js" />
     <Content Include="Areas\Admin\Content\libs\bootstrap\bootstrap.css" />
     <Content Include="Areas\Admin\Content\libs\bootstrap\bootstrap.min.css" />
@@ -123,6 +125,72 @@
     <Content Include="Areas\Admin\Content\js\sb-admin-2.js" />
     <Content Include="Areas\Admin\Content\libs\redactor\redactor.css" />
     <Content Include="Areas\Admin\Content\libs\redactor\redactor.js" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\images\animated-overlay.gif" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\images\ui-icons_222222_256x240.png" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\images\ui-icons_454545_256x240.png" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\images\ui-icons_888888_256x240.png" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\jquery-ui.css" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\jquery.ui.accordion.css" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\jquery.ui.all.css" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\jquery.ui.autocomplete.css" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\jquery.ui.base.css" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\jquery.ui.button.css" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\jquery.ui.core.css" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\jquery.ui.datepicker.css" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\jquery.ui.dialog.css" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\jquery.ui.menu.css" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\jquery.ui.progressbar.css" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\jquery.ui.resizable.css" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\jquery.ui.selectable.css" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\jquery.ui.slider.css" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\jquery.ui.spinner.css" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\jquery.ui.tabs.css" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\jquery.ui.theme.css" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\jquery.ui.tooltip.css" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\minified\images\animated-overlay.gif" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\minified\jquery-ui.min.css" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\minified\jquery.ui.button.min.css" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\minified\jquery.ui.core.min.css" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\minified\jquery.ui.menu.min.css" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\minified\jquery.ui.slider.min.css" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\minified\jquery.ui.spinner.min.css" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\minified\jquery.ui.theme.min.css" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\css\minified\jquery.ui.tooltip.min.css" />
+    <Content Include="Areas\Admin\Content\libs\jquery-ui\js\jquery-ui-1.10.2.min.js" />
+    <Content Include="Areas\Admin\Content\libs\tagsinput\jquery.tagsinput.css" />
+    <Content Include="Areas\Admin\Content\libs\tagsinput\jquery.tagsinput.js" />
+    <Content Include="Areas\Admin\Content\libs\tagsinput\jquery.tagsinput.min.js" />
     <Content Include="Areas\Admin\Content\libs\validate\jquery.validate.css" />
     <Content Include="Areas\Admin\Content\libs\validate\jquery.validate.extends.js" />
     <Content Include="Areas\Admin\Content\libs\validate\jquery.validate.js" />
@@ -209,18 +277,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application\BaseController.cs" />
+    <Compile Include="Application\PagedList.cs" />
     <Compile Include="Application\StringExtensions.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AuthController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AutocompleteController.cs" />
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GridFsController.cs" />
     <Compile Include="Areas\Admin\Controllers\PostsController.cs" />
     <Compile Include="Areas\Admin\Models\jQueryDataTableRequestModel.cs" />
     <Compile Include="Areas\Admin\Models\jQueryDataTableResponseModel.cs" />
     <Compile Include="Areas\Admin\Models\LogOnModel.cs" />
     <Compile Include="Areas\Admin\Models\PostModel.cs" />
     <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\GridFsController.cs" />
     <Compile Include="Controllers\MailerController.cs" />
     <Compile Include="Controllers\PostsController.cs" />
     <Compile Include="Controllers\SidebarController.cs" />
@@ -231,6 +303,7 @@
     <Compile Include="Models\Entities\Comment.cs" />
     <Compile Include="Models\Entities\Post.cs" />
     <Compile Include="Models\FormModel\ContactFormModel.cs" />
+    <Compile Include="Models\PagingOptions.cs" />
     <Compile Include="Models\ViewModel\CategoryItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -275,6 +348,8 @@
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Mailer\Contact.txt.cshtml" />
     <Content Include="Views\Mailer\Contact.html.cshtml" />
+    <Content Include="Views\Posts\_Paging.cshtml" />
+    <Content Include="Views\Posts\_AdminActions.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

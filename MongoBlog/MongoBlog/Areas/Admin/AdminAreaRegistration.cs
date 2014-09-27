@@ -58,6 +58,32 @@ namespace MongoBlog.Areas.Admin
             );
 
             context.MapRoute(
+                "Admin.Autocomplete.Tags",
+                "admin/autocomplete/tags",
+                new { controller = "Autocomplete", action = "Tags" },
+                namespaces
+            );
+            context.MapRoute(
+                "Admin.Autocomplete.Categories",
+                "admin/autocomplete/categories",
+                new { controller = "Autocomplete", action = "Categories" },
+                namespaces
+            );
+
+            context.MapRoute(
+                name: "Admin.GridFS.Upload",
+                url: "admin/gridfs/upload",
+                defaults: new { controller = "GridFS", action = "Upload" },
+                namespaces: namespaces
+            );
+            context.MapRoute(
+                name: "Admin.GridFS.GetUploadedImages",
+                url: "admin/gridfs/get-uploaded-images",
+                defaults: new { controller = "GridFS", action = "GetUploadedImages" },
+                namespaces: namespaces
+            );
+
+            context.MapRoute(
                 "Admin.Auth.LogOn",
                 "admin",
                 new { controller = "Auth", action = "LogOn" },

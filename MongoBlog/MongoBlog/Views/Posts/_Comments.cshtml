@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MongoBlog.Models.Entities.Comment>
+﻿@model PagedList<MongoBlog.Models.Entities.Comment>
 
 @foreach (var item in Model)
 {
@@ -11,4 +11,10 @@
             @item.Body
         </div>
     </div>
+}
+@if (Model.HasNextPage)
+{
+    <a href="@Url.RouteUrl("Posts.LoadComments", new { page = Model.PreviousPage })" class="btn btn-primary btn-block" data-action="load-comments" data-loading-text="Loading...">
+        More comments<i class="glyphicon glyphicon-chevron-down"></i>
+    </a>
 }

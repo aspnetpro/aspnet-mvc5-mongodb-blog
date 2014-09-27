@@ -3,6 +3,29 @@
 
 jQuery(function ($) {
 
+    $('#comments-list').on('click', '[data-action=load-comments]', function (e) {
+        e.preventDefault(); e.stopPropagation();
+
+        var $link = $(this);
+        $link.button('loading');
+
+        //atrasa a chamada dos posts em 2 segundos
+        //setTimeout(function () {
+
+            //chama os próximos posts via ajax
+            $.get($link.attr('href'))
+                .done(function (result) {
+                    $(result).hide().appendTo("#comments-list").fadeIn();
+                    $link.remove();
+                })
+                .fail(function () {
+                    alert("Cannot load comments!");
+                });
+
+        //}, 2000);
+        
+    });
+
     //validate
     $('#form-add-comment').validate({
         rules: {

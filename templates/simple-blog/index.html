@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Simple Blog</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" />
+    <link href="content/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+    <link href="content/libs/bootstrap/themes/bootstrap.readable.min.css" rel="stylesheet" media="screen" />
+    <link href="content/css/custom.css" rel="stylesheet" media="screen" />
+    <link href="content/libs/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+    <!--[if IE 7]>
+        <link rel="stylesheet" href="content/libs/font-awesome/css/font-awesome-ie7.min.css">
+    <![endif]-->
+    <!--[if lt IE 9]>
+        <script src="content/js/html5shiv.js"></script>
+        <script src="content/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <header class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="row">
+                <div class="navbar-header col-md-12">
+                    <a class="navbar-brand" href="#">
+                        <h1>Simple Blog <small>bootstrap theme</small></h1>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="main" class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-8">
+                <section id="posts">
+                    <div class="post">
+                        <h2><a href="post.html">Post #1</a></h2>
+                        <p class="text-muted">
+                            Posted on <a href="#">2013.10.10</a>,
+                            by <a href="#">Jack</a>,
+                            in <a href="#">Travel</a>
+                        </p>
+                        <p>
+                            Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+                        </p>
+                        <p>
+                            Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+                        </p>
+                        <p>
+                            <a href="post.html" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-circle-arrow-right"></i>&nbsp;Read more</a>
+                        </p>
+                    </div>
+                    <div class="post">
+                        <h2><a href="post.html">Post #2</a></h2>
+                        <p class="text-muted">
+                            Posted on <a href="#">2013.09.23</a>,
+                            by <a href="#">Bill</a>,
+                            in <a href="#">Business</a>
+                        </p>
+                        <p>
+                            Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+                        </p>
+                        <p>
+                            <a href="post.html" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-circle-arrow-right"></i>&nbsp;Read more</a>
+                        </p>
+                    </div>
+                    <div class="post">
+                        <h2><a href="post.html">Post #3</a></h2>
+                        <p class="text-muted">
+                            Posted on <a href="#">2013.10.10</a>,
+                            by <a href="#">Brian</a>,
+                            in <a href="#">Travel</a>
+                        </p>
+                        <p>
+                            Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+                        </p>
+                        <p>
+                            Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+                        </p>
+                        <p>
+                            <a href="post.html" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-circle-arrow-right"></i>&nbsp;Read more</a>
+                        </p>
+                    </div>
+                    <div class="post">
+                        <h2><a href="post.html">Post #4</a></h2>
+                        <p class="text-muted">
+                            Posted on <a href="#">2013.09.23</a>,
+                            by <a href="#">Larry</a>,
+                            in <a href="#">Business</a>
+                        </p>
+                        <p>
+                            Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+                        </p>
+                        <p>
+                            <a href="post.html" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-circle-arrow-right"></i>&nbsp;Read more</a>
+                        </p>
+                    </div>
+                </section>
+                <ul class="pager">
+                    <li class="next"><a href="#">newest &rarr;</a></li>
+                    <li class="previous"><a href="#">&larr; older</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-4">
+                <section>
+                    <div class="profile">
+                        <a href="#"><img src="content/images/profile.jpg" alt="Your name" class="img-circle" width="120"></a>
+                        <p class="lead">Your name</p>
+                    </div>
+                </section>
+                <section>
+                    <form role="search" class="form-group">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary" type="button">Go!</button>
+                            </span>
+                        </div>
+                    </form>
+                </section>
+                <section class="panel panel-default">
+                    <div class="panel-heading">Categories</div>
+                    <ul class="list-group">
+                        <li class="list-group-item"><a href="#">Business</a></li>
+                        <li class="list-group-item"><a href="#">Travel</a></li>
+                        <li class="list-group-item"><a href="#">Startup</a></li>
+                        <li class="list-group-item"><a href="#">Health</a></li>
+                    </ul>
+                </section>
+                <section class="panel panel-default">
+                    <div class="panel-heading">Tags</div>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <a href="#"><span class="label label-primary">travel</span></a>
+                            <a href="#"><span class="label label-primary">business</span></a>
+                            <a href="#"><span class="label label-primary">startup</span></a>
+                            <a href="#"><span class="label label-primary">health</span></a>
+                        </li>
+                    </ul>
+                </section>
+                <section class="panel panel-default">
+                    <div class="panel-heading">Archives</div>
+                    <ul class="list-group">
+                        <li class="list-group-item"><a href="#">Popular posts</a></li>
+                        <li class="list-group-item"><a href="#">Last week</a></li>
+                        <li class="list-group-item"><a href="#">Last month</a></li>
+                        <li class="list-group-item"><a href="#">Last year</a></li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="col-md-3">
+                <ul class="list-unstyled">
+                  <li>Blog<li>
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="#">About</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                </ul>
+              </div>
+              <div class="col-md-3">
+                <ul class="list-unstyled">
+                  <li>Archives<li>
+                  <li><a href="#">Popular posts</a></li>
+                  <li><a href="#">Last week</a></li>
+                  <li><a href="#">Last month</a></li>
+                  <li><a href="#">Last year</a></li>
+                </ul>
+              </div>
+              <div class="col-md-3">
+                <ul class="list-unstyled">
+                  <li>Social<li>
+                  <li><a href="#">Facebook</a></li>
+                  <li><a href="#">Twitter</a></li>
+                  <li><a href="#">Google+</a></li>
+                  <li><a href="#">LinkedIn</a></li>
+                  <li><a href="#">GitHub</a></li>
+                </ul>
+              </div>
+              <div class="col-md-3">
+                <ul class="list-unstyled">
+                  <li>Column 4<li>
+                  <li><a href="#">Link 1</a></li>
+                  <li><a href="#">Link 2</a></li>
+                  <li><a href="#">Link 3</a></li>
+                  <li><a href="#">Link 4</a></li>
+                </ul>
+              </div>              
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="col-md-8">
+                <a href="#">Terms of Service</a>
+                <a href="#">Privacy</a>
+                <a href="#">Security</a>
+              </div>
+              <div class="col-md-4">
+                <p class="muted pull-right">© 2013 Company Name. All rights reserved</p>
+              </div>
+            </div>
+          </div>
+        </div>
+    </footer>
+
+    <script src="content/js/jquery-2.0.3.min.js"></script>
+    <script src="content/libs/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
